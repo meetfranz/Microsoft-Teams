@@ -1,11 +1,5 @@
 const path = require('path');
 
-window.electronSafeIpc = {
-  send: () => null,
-  on: () => null,
-};
-window.desktop = undefined;
-
 module.exports = (Franz) => {
   const getMessages = () => {
     let messages = 0;
