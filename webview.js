@@ -20,4 +20,11 @@ module.exports = (Franz) => {
   Franz.injectCSS(path.join(__dirname, 'service.css'));
 
   Franz.loop(getMessages);
+
+  setTimeout(() => {
+    const el = document.querySelector('#download-desktop-page .use-app-lnk');
+    if (el) {
+      el.click();
+    }
+  }, 4000);
 };
