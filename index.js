@@ -14,4 +14,13 @@ module.exports = Franz => class MicrosoftTeams extends Franz {
       'skypeforbusiness.com',
     ];
   }
+
+  // we need to allow all cookies for ms teams
+  onHeadersReceived(details, callback) {
+    if (details.responseHeaders && details.responseHeaders['Set-Cookie'] && details.responseHeaders['Set-Cookie'].length && !details.responseHeaders['Set-Cookie'][0].includes('SameSite=none')) {
+      // eslint-disable-next-line no-param-reassign
+      details.responseHeaders['Set-Cookie'][0] = `${details.responseHeaders['Set-Cookie'][0]}; SameSite=none`;
+    }
+    callback({ cancel: false, responseHeaders: details.responseHeaders });
+  }
 };
