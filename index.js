@@ -1,6 +1,6 @@
 module.exports = Franz => class MicrosoftTeams extends Franz {
   overrideUserAgent() {
-    return window.navigator.userAgent.replace(/(Franz|Electron)([^\s]+\s)/g, '').replace(/(Chrome\/)([^ ]*)/g, '$163.0.3239.84');
+    return window.navigator.userAgent.replace(/(Franz|Electron)([^\s]+\s)/g, '').replace(/(Chrome\/)([^ ]*)/g, '$179.0.3932.0');
   }
 
   // https://docs.microsoft.com/en-us/microsoftteams/troubleshoot/teams-sign-in/sign-in-loop#resolution
