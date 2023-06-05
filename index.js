@@ -19,7 +19,7 @@ module.exports = Franz => class MicrosoftTeams extends Franz {
   onHeadersReceived(details, callback) {
     if (details.responseHeaders && details.responseHeaders['Set-Cookie'] && details.responseHeaders['Set-Cookie'].length && !details.responseHeaders['Set-Cookie'][0].includes('SameSite=none')) {
       // eslint-disable-next-line no-param-reassign
-      details.responseHeaders['Set-Cookie'][0] = `${details.responseHeaders['Set-Cookie'][0]}; SameSite=none`;
+      details.responseHeaders['Set-Cookie'][0] = `${details.responseHeaders['Set-Cookie'][0]}; SameSite=none; Secure`;
     }
     callback({ cancel: false, responseHeaders: details.responseHeaders });
   }
